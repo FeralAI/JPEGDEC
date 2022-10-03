@@ -20,7 +20,7 @@
 #include <stdio.h>
 #else
 #include <Arduino.h>
-#if !defined(HAL_ESP32_HAL_H_) && defined(__has_include) && __has_include(<FS.h>)
+#if !defined(HAL_ESP32_HAL_H_) && defined(__has_include) && __has_include(<FS.h>) && !defined(JPEGDEC_EXCLUDE_FS)
 #include <FS.h>
 #endif
 #endif
@@ -197,7 +197,7 @@ typedef struct jpeg_image_tag
 } JPEGIMAGE;
 
 #ifdef __cplusplus
-#if defined(__has_include) && __has_include(<FS.h>)
+#if defined(__has_include) && __has_include(<FS.h>) && !defined(JPEGDEC_EXCLUDE_FS)
 #include "FS.h"
 #endif
 #define JPEG_STATIC static
